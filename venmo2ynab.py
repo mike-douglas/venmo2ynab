@@ -1,3 +1,4 @@
+import click
 import csv
 import sys
 
@@ -31,9 +32,13 @@ def write_transactions(transactions, output_file):
                     'Amount': '{}{}'.format('-' if is_outflow else '', row['Amount (total)'][2:]),
                 })
 
-if __name__ == '__main__':
+@click.command()
+@click.argument('input_files', nargs=-1)
+@click.argument('output_file', nargs=1)
+def main(input_files, output_file):
     transactions = []
-    for input_file in sys.argv[1:-1]:
+
+    for input_file in input_files:
         transactions += list(read_transactions(input_file))
     
-    write_transactions(transactions, sys.argv[-1])
+    write_transactions(transactions, output_file)
