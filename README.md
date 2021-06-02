@@ -24,4 +24,4 @@ python3 setup install
 
 ## License
 
-See [LICENSE.md](LICENSE).
+See [LICENSE.md](LICENSE.md).
