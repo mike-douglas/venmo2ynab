@@ -6,10 +6,10 @@ from datetime import datetime
 def read_transactions(input_file):
     with open(input_file) as csvin:
         in_reader = csv.reader(csvin, delimiter=',', quotechar='"')
-        in_reader.next()
-        in_reader.next()
-        headers = in_reader.next()
-        in_reader.next()
+        next(in_reader)
+        next(in_reader)
+        headers = next(in_reader)
+        next(in_reader)
 
         for row in in_reader:
             yield dict(zip(headers, row))
@@ -37,4 +37,3 @@ if __name__ == '__main__':
         transactions += list(read_transactions(input_file))
     
     write_transactions(transactions, sys.argv[-1])
-    # convert_file(sys.argv[1], sys.argv[2])
