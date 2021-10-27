@@ -19,7 +19,7 @@ This script uses [python3](https://python.org). Its only dependency is [Click](h
 Installing is a snap. Clone this repo and run:
 
 ```python
-python3 setup install
+pip3 install .
 ```
 
 ## License
